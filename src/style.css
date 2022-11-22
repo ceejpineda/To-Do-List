@@ -1,7 +1,13 @@
+@font-face {
+    font-family: Poppins;
+    src: url(./modules/fonts/Poppins-Regular.ttf);
+}
+
 *, *::after, *::before{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: Poppins, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 body{
     display: flex;
@@ -21,6 +27,7 @@ body{
     justify-content: space-between;
     border: thick solid black;
     height: 8vh;
+    padding: 2vh;
 }
 .body{
     display: flex;
@@ -31,10 +38,38 @@ body{
     display: flex;
     flex-grow: 1;
     flex-direction: column;
+    gap: 20px;
     width: 25vw;
     height: 85vh;
     border: thick solid black;
 }
+h2{
+    margin: 1vw;
+}
+.summary{
+    display: flex;
+    flex-direction: column;
+}
+h2::after{
+    content: "";
+    display: block;
+    border: 1px solid black;
+}
+
+.tile{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    height: 5vh;
+    align-items: center;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    cursor: pointer;
+}
+.tile:hover{
+    background-color: beige;
+}
+
 .content{
     display: flex;
     flex-grow: 1;

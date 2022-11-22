@@ -2,35 +2,58 @@ const sidebar = (()=>{
 
     const initializeSidebar = () =>{
         const sidebar = document.getElementById('sidebar')
+        const summary = document.createElement('div');
+        summary.classList.add('summary');
 
         const h2Tasks = document.createElement('h2');
-        h2Tasks.innerText = 'Tasks';
+        h2Tasks.innerText = 'Summary';
         
-        const todayTile = document.createElement('div');
-        const todayIcon = document.createElement('img');
-        const todayName = document.createElement('p');
-        todayName.innerText = 'Today';
-        todayTile.appendChild(todayIcon);
-        todayTile.appendChild(todayName);
-
-        const sevenTile = document.createElement('div');
-        const sevenIcon = document.createElement('img');
-        const sevenName = document.createElement('p');
-        sevenName.innerText = 'This Week';
-        sevenTile.appendChild(sevenIcon);
-        sevenTile.appendChild(sevenName);
-
-        const importantTile = document.createElement('div');
-        const importantIcon = document.createElement('img');
-        const importantName = document.createElement('p');
-        importantName.innerText = 'Important';
-        importantTile.appendChild(importantIcon);
-        importantTile.appendChild(importantName);
+        const allTask = addTile('All Tasks')
+        const todayTile = addTile('Today');
+        const weekTile = addTile('This Week');
+        const importantTile = addTile('Important');
         
-        sidebar.appendChild(h2Tasks);
-        sidebar.appendChild(todayTile);
-        sidebar.appendChild(sevenTile);
-        sidebar.appendChild(importantTile);
+        
+
+        
+        summary.appendChild(h2Tasks);
+        summary.appendChild(allTask)
+        summary.appendChild(todayTile);
+        summary.appendChild(weekTile);
+        summary.appendChild(importantTile);
+
+        sidebar.appendChild(summary);
+
+
+        //sidebar.appendChild(addToDo());
+    }
+
+    const addToDo = () => {
+        const addToDoContainer = document.createElement('div');
+        
+        const addToDoTitle = document.createElement('h2');
+        addToDoTitle.innerText = 'Add To Do: '
+
+        const addToDoForm = document.createElement('input');
+        addToDo.placeholder = 'To Do';
+
+        addToDoContainer.appendChild(addToDoTitle)
+        addToDoContainer.appendChild(addToDoForm)
+
+        return addToDoContainer;
+    }
+
+    const addTile = (tileText) => {
+        const tile = document.createElement('div');
+        const tileIcon = document.createElement('img');
+        const tileName = document.createElement('p');
+        tileName.innerText = tileText;
+        tile.appendChild(tileIcon);
+        tile.appendChild(tileName);
+
+        tile.classList.add('tile');
+
+        return tile;
     }
 
     return {initializeSidebar}

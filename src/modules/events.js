@@ -5,14 +5,13 @@ const events = (()=>{
 
     const sideBarEvent = () =>{
         const burger = document.querySelector('.burger');
-        const body = document.querySelector('.body');
+        const sideBar = document.querySelector('.sidebar');
+        sideBar.style.display = 'flex';
         burger.addEventListener('click', ()=>{
-            const sideBar = document.getElementById('sidebar');
-            if(sideBar !== null){
-                body.removeChild(sideBar);
+            if(sideBar.style.display == 'flex'){
+                sideBar.style.display = 'none';
             }else{
-                body.appendChild(layout.sideBar())
-                sidebar.initializeSidebar();
+                sideBar.style.display = 'flex'
             }
         });
     }

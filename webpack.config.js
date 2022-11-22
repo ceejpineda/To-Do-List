@@ -5,7 +5,7 @@ module.exports = {
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
-    clean: true;
+    clean: true,
   },   performance: {
     hints: false,
     maxEntrypointSize: 512000,
@@ -22,6 +22,10 @@ module.exports = {
         type: 'asset/resource'
     
      },
+     {
+      test: /\.(woff|woff2|eot|ttf|otf)$/i,
+      type: 'asset/resource',
+    },
     ]
  },
 };
