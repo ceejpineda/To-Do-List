@@ -1,5 +1,6 @@
 import layout from "./layout";
 import sidebar from "./sidebar";
+import content from "./content";
 
 const events = (()=>{
 
@@ -15,6 +16,7 @@ const events = (()=>{
             }
         });
         sideBarSelector();
+        addItem();
     }
         
     const sideBarSelector = () =>{
@@ -28,6 +30,15 @@ const events = (()=>{
                 });
                 tile.classList.add('selected');
             })
+        });
+    }
+
+    const addItem = () => {
+        const addIcon = document.querySelector('.addIcon');
+        
+        addIcon.addEventListener('click', ()=>{
+            const contentContainer = document.querySelector('.content');
+            contentContainer.appendChild(content.addItem());
         });
     }
 

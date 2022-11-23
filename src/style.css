@@ -82,7 +82,7 @@ h2::after{
     flex-direction: column-reverse;
     justify-content: space-between;
     gap: 1vh;
-    flex-shrink: 1;
+    flex-grow: 1;
     min-width: 75vw;
     height: 90vh;
     padding: 1vw;
@@ -103,6 +103,29 @@ h2::after{
     padding: 5px;
     gap: 2vw;
     font-size: 1.5rem;
+    justify-content: stretch;
+}
+
+.item{
+    outline: none;
+    border: none;
+    font-size: 1.5rem;
+}
+.item:disabled{
+    background-color: white;
+    color: red;
+}
+.item::placeholder{
+    color: black;
+}
+.addIcon{
+    height: 2.5rem;
+    margin-left: auto;
+    transition: transform 0.2s ease-in-out;
+}
+.addIcon:hover{
+    transform: rotate(180deg);
+    cursor: pointer;
 }
 
 input[type="checkbox"]{
