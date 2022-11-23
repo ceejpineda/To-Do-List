@@ -4,6 +4,8 @@ const sidebar = (()=>{
         const sidebar = document.getElementById('sidebar')
         const summary = document.createElement('div');
         summary.classList.add('summary');
+        const projects = document.createElement('div');
+        projects.classList.add('projects');
 
         const h2Tasks = document.createElement('h2');
         h2Tasks.innerText = 'Summary';
@@ -12,8 +14,11 @@ const sidebar = (()=>{
         const todayTile = addTile('Today');
         const weekTile = addTile('This Week');
         const importantTile = addTile('Important');
+
+        const h2Projects = document.createElement('h2');
+        h2Projects.innerText= 'Projects';
         
-        
+        const addProject = addTile('Add a project');
 
         
         summary.appendChild(h2Tasks);
@@ -22,11 +27,16 @@ const sidebar = (()=>{
         summary.appendChild(weekTile);
         summary.appendChild(importantTile);
 
+        projects.appendChild(h2Projects);
+        projects.appendChild(addProject)
+
         sidebar.appendChild(summary);
+        sidebar.appendChild(projects)
 
 
         //sidebar.appendChild(addToDo());
     }
+    
 
     const addToDo = () => {
         const addToDoContainer = document.createElement('div');

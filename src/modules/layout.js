@@ -1,4 +1,6 @@
 import sidebar from "./sidebar";
+import content from "./content";
+import footerContent from "./footer";
 
 const layout = (()=>{
 
@@ -6,8 +8,10 @@ const layout = (()=>{
         const page = document.getElementById('content');
         page.appendChild(header());
         page.appendChild(body());
-        page.appendChild(footer());
         sidebar.initializeSidebar();
+        content.loadContent();
+        footerContent.loadFooter();
+
     }
 
     const header = () =>{
@@ -39,21 +43,23 @@ const layout = (()=>{
 
         bodyContainer.appendChild(mainContent());
         bodyContainer.appendChild(sideBar());
-
+        
         return bodyContainer;
     }
-
+    
     const sideBar = () =>{
         const sideBarContainer = document.createElement('div');
         sideBarContainer.classList.add('sidebar');
         sideBarContainer.id = 'sidebar'
-
+        
         return sideBarContainer;
     }
     const mainContent = () =>{
         const contentContainer = document.createElement('div');
         contentContainer.classList.add('content');
-
+        
+        contentContainer.appendChild(footer());
+        
         return contentContainer;
     }
 

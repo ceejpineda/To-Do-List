@@ -1,0 +1,7 @@
+const darkMode = (()=>{
+
+    const toggle = () =>{
+
+    }
+    
+})();

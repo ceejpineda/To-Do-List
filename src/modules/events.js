@@ -14,6 +14,21 @@ const events = (()=>{
                 sideBar.style.display = 'flex'
             }
         });
+        sideBarSelector();
+    }
+        
+    const sideBarSelector = () =>{
+        const sideBar = document.querySelector('.sidebar');
+        const tiles = document.querySelectorAll('.tile');
+
+        tiles.forEach(tile => {
+            tile.addEventListener('click', () =>{
+                tiles.forEach(element => {
+                    element.classList.remove('selected');
+                });
+                tile.classList.add('selected');
+            })
+        });
     }
 
     return {sideBarEvent};
