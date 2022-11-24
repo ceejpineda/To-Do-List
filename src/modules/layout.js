@@ -1,3 +1,5 @@
+"use strict";
+
 import sidebar from "./sidebar";
 import content from "./content";
 import footerContent from "./footer";
@@ -5,13 +7,13 @@ import footerContent from "./footer";
 const layout = (()=>{
 
     const loadPageLayOut = () => {
-        const page = document.getElementById('content');
+        const page = document.getElementById('DOM');
         page.appendChild(header());
         page.appendChild(body());
         sidebar.initializeSidebar();
         content.loadContent();
+        content.loadTasks();
         footerContent.loadFooter();
-
     }
 
     const header = () =>{

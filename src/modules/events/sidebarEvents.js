@@ -1,8 +1,9 @@
-import layout from "./layout";
-import sidebar from "./sidebar";
-import content from "./content";
+const sidebarEvents = (()=>{
 
-const events = (()=>{
+    const loadEvents = () => {
+        sideBarEvent();     // Display/Remove SideBar
+        sideBarSelector();  // Colors the "Active" Sidebar Item
+    }
 
     const sideBarEvent = () =>{
         const burger = document.querySelector('.burger');
@@ -15,8 +16,6 @@ const events = (()=>{
                 sideBar.style.display = 'flex'
             }
         });
-        sideBarSelector();
-        addItem();
     }
         
     const sideBarSelector = () =>{
@@ -33,17 +32,8 @@ const events = (()=>{
         });
     }
 
-    const addItem = () => {
-        const addIcon = document.querySelector('.addIcon');
-        
-        addIcon.addEventListener('click', ()=>{
-            const contentContainer = document.querySelector('.content');
-            contentContainer.appendChild(content.addItem());
-        });
-    }
-
-    return {sideBarEvent};
+    return {loadEvents};
 
 })();
 
-export default events;
+export default sidebarEvents;

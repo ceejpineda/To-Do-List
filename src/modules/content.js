@@ -1,40 +1,23 @@
-import addIconLink from './icons/add.png'
+"use strict";
+
+import contentElements from './contentCreators/contentElements'
 
 const content = (()=>{
 
     const loadContent = () => {
         const content = document.querySelector('.content');
-
-        content.appendChild(addItem());
-;
+        const todoContainer = document.createElement('div');
+        todoContainer.classList.add('todoContainer');
+        content.appendChild(todoContainer);
     }
 
-    const addItem = () =>{
-        const item = document.createElement('div');
-        item.classList.add('todoItem');
+    const loadTasks = () => {
+        const todoContainer = document.querySelector('.todoContainer');
 
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-
-        const description = document.createElement('input');
-        description.classList.add('item');
-        description.type = 'text';
-        description.placeholder = 'finish this project';
-        description.disabled = true;
-
-        const addIcon = document.createElement('img');
-        addIcon.classList.add('addIcon');
-        addIcon.src = addIconLink;
-
-        item.appendChild(checkbox);
-        item.appendChild(description);
-        item.appendChild(addIcon);
-        
-        return item;
+        todoContainer.appendChild(contentElements.itemCreator())
     }
 
-    return {loadContent, addItem}
-
+    return {loadContent, loadTasks}
 })();
 
 export default content;

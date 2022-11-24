@@ -1,7 +1,11 @@
+"use strict";
+
 import layout from "./modules/layout";
-import events from "./modules/events";
+import sidebarEvents from "./modules/events/sidebarEvents";
+import mainContentEvents from "./modules/events/mainContentEvents";
 
 import './style.css';
 
 layout.loadPageLayOut();
-events.sideBarEvent();
+sidebarEvents.loadEvents();
+mainContentEvents.loadEvents();
