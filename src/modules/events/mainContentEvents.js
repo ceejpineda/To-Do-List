@@ -12,7 +12,7 @@ const mainContentEvents = (()=>{
         const toDoTask = document.querySelector('.taskDescription');
 
         add.addEventListener('click', ()=>{
-            todoContainer.prepend(contentElements.todoItemFactory(toDoTask.value,false,true));
+            todoContainer.appendChild(contentElements.todoItemFactory(toDoTask.value,false,true));
         })
 
         

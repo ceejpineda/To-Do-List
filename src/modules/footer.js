@@ -11,7 +11,14 @@ const footerContent = (()=>{
         return footerContainer;
     }
 
-    return {loadFooter}
+    const footer = () => {
+        const footerContainer = document.createElement('div');
+        footerContainer.classList.add('footer');
+
+        return footerContainer;
+    }
+
+    return {loadFooter, footer}
 })();
 
 export default footerContent;

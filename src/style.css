@@ -79,8 +79,8 @@ h2::after{
 
 .content{
     display: flex;
-    flex-direction: column-reverse;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: flex-start;
     gap: 1vh;
     flex-grow: 1;
     min-width: 75vw;
@@ -98,7 +98,8 @@ h2::after{
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    height: 5vh; 
+    height: 5vh;
+    margin-top: auto;
 }
 .todoItem{
     display: flex;
@@ -109,7 +110,7 @@ h2::after{
     padding: 5px;
     gap: 2vw;
     font-size: 1.5rem;
-    justify-content: stretch;
+    color: black;
 }
 
 .item{
@@ -141,4 +142,10 @@ input[type="checkbox"]{
     width: 40px;
     cursor: pointer;
     accent-color: green;
+}
+
+.taskDescription{
+    color: grey;
+    font-style: italic;
+
 }

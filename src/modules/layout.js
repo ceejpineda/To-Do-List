@@ -60,17 +60,10 @@ const layout = (()=>{
         const contentContainer = document.createElement('div');
         contentContainer.classList.add('content');
         
-        contentContainer.appendChild(footer());
         
         return contentContainer;
     }
 
-    const footer = () => {
-        const footerContainer = document.createElement('div');
-        footerContainer.classList.add('footer');
-
-        return footerContainer;
-    }
 
     return {loadPageLayOut,body, sideBar}
 
