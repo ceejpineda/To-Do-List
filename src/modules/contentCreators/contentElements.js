@@ -4,8 +4,10 @@ const contentElements = (()=>{
 
     //(description, checkboxCondition, inputCondition)
     const todoItemFactory = (description, checkboxCondition, inputCondition) => {
+        let dataItemNumber = document.querySelector('.todoContainer').childElementCount;
         const item = document.createElement('div');
         item.classList.add('todoItem');
+        item.dataset.number = dataItemNumber+1;
 
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
@@ -25,7 +27,9 @@ const contentElements = (()=>{
     }
 
     const itemCreator = () => {
+
         const item = todoItemFactory('add task...', true, false);
+        item.dataset.number = 0;
         
         const input = item.querySelector('.item');
         input.classList.add('taskDescription')

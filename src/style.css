@@ -130,7 +130,7 @@ h2::after{
 .addIcon{
     height: 2.5rem;
     margin-left: auto;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.4s ease-in-out;
 }
 .addIcon:hover{
     transform: rotate(180deg);
@@ -145,7 +145,8 @@ input[type="checkbox"]{
 }
 
 .taskDescription{
+    display: flex;
     color: grey;
     font-style: italic;
-
+    flex-grow: 1;
 }
