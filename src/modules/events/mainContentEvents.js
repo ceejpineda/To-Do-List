@@ -13,11 +13,8 @@ const mainContentEvents = (()=>{
         
         add.addEventListener('click', ()=>{
             if(toDoTask.value == "") return;
-
-            const elementNumber = document.querySelector('.todoContainer').lastChild.dataset.number;
-            if(elementNumber == null){
-                elementNumber = 1;
-            }
+            
+            const elementNumber = localStorage.length+1;
             const taskNumber = elementNumber.toString();
 
             let newToDo = {
@@ -25,13 +22,27 @@ const mainContentEvents = (()=>{
                 number: taskNumber,
             }
 
-            localStorage.setItem('task'+taskNumber, newToDo);
-            window.dispatchEvent(new Event('storage')); //Kapag Wala to you have to trigger the event in a different
+            localStorage.setItem('task'+taskNumber, JSON.stringify(newToDo));
+            //window.dispatchEvent(new Event('storage')); //Kapag Wala to you have to trigger the event in a different
+            localStorageRefresh();
         })
     }
 
     const localStorageRefresh = () =>{
+        let itemCount = localStorage.length;
+        const container = document.querySelector('.todoContainer');
+        container.innerHTML = "";
 
+        for(let i=0; i<itemCount;i++){
+            let data = localStorage.getItem(`task${i+1}`);
+
+            if(data == null) return;
+
+            let data_parsed = JSON.parse(data);
+            let task = data_parsed.task;
+            const itemElement = contentElements.todoItemFactory(task, false, true);
+            container.appendChild(itemElement);
+        }
     }
 
     return {loadEvents};

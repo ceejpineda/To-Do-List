@@ -97,7 +97,7 @@ h2::after{
 
 .todoContainer{
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     gap: 1vh;
 }
 .footer{

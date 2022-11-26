@@ -9,3 +9,4 @@ import './style.css';
 layout.loadPageLayOut();
 sidebarEvents.loadEvents();
 mainContentEvents.loadEvents();
+
