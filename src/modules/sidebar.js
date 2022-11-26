@@ -1,3 +1,8 @@
+import allTaskUrl from './icons/all.png';
+import todayTaskUrl from './icons/today.png';
+import sevenTaskUrl from './icons/7.png';
+import importantUrl from './icons/star.png'
+
 const sidebar = (()=>{
 
     const initializeSidebar = () =>{
@@ -11,6 +16,7 @@ const sidebar = (()=>{
         h2Tasks.innerText = 'Summary';
         
         const allTask = addTile('All Tasks')
+        allTask.classList.add('selected')
         const todayTile = addTile('Today');
         const weekTile = addTile('This Week');
         const importantTile = addTile('Important');
@@ -61,12 +67,22 @@ const sidebar = (()=>{
         tile.appendChild(tileIcon);
         tile.appendChild(tileName);
 
+        if(tileText == 'All Tasks'){
+            tileIcon.src = allTaskUrl;
+        }else if(tileText == 'Today'){
+            tileIcon.src = todayTaskUrl;
+        }else if(tileText == 'This Week'){
+            tileIcon.src = sevenTaskUrl;
+        }else if(tileText == 'Important'){
+            tileIcon.src = importantUrl;
+        }
         tile.classList.add('tile');
 
         return tile;
     }
 
     return {initializeSidebar}
+
 })();
 
 export default sidebar;

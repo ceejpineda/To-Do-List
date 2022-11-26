@@ -18,15 +18,17 @@ body{
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    width: 100%;
+    min-width: 100%;
     height: 100%;
 }
 .header{
     display: flex;
     align-items: center;
+    flex-grow: 1;
     justify-content: space-between;
-    border-bottom: thick solid green;
+    border-bottom: thick solid black;
     height: 10vh;
+    min-width: 100vw;
     padding: 2vh;
 }
 .body{
@@ -41,7 +43,7 @@ body{
     gap: 20px;
     width: 25vw;
     height: 90vh;
-    border: thin solid rgba(0, 0, 0, 0.212);
+    border-right: thick solid black;
 }
 h2{
     margin: 1vw;
@@ -66,6 +68,8 @@ h2::after{
     margin-left: 1vw;
     margin-right: 1vw;
     cursor: pointer;
+    object-fit: contain;
+    gap: 10px;
 }
 
 .selected{
@@ -84,9 +88,11 @@ h2::after{
     gap: 1vh;
     flex-grow: 1;
     min-width: 75vw;
+    width: 100%;
     height: 90vh;
     padding: 1vw;
     padding-bottom: 0;
+    /* background-color: #CFFDE1; */
 }
 
 .todoContainer{
@@ -106,11 +112,13 @@ h2::after{
     align-items: center;
     height: 6vh;
     width: 100%;
-    border: 2px solid black;
+    border: 3px solid black;
+    box-shadow: 3px 3px;
     padding: 5px;
     gap: 2vw;
     font-size: 1.5rem;
     color: black;
+    background-color: #F0FF42;
 }
 
 .item{
@@ -118,12 +126,11 @@ h2::after{
     border: none;
     font-size: 1.5rem;
 }
-.item:disabled{
+.item:disabled::placeholder{
     background-color: white;
-    color: red;
+    color: black;
 }
 .addItem > .item::placeholder{
-    color: grey;
     font-style: italic;
 
 }
@@ -149,4 +156,11 @@ input[type="checkbox"]{
     color: grey;
     font-style: italic;
     flex-grow: 1;
+    background-color: #F0FF42;
+}
+.tile img{
+    height: 30px;
+    width: 30px;
+    border: 0;
+    outline: 0;
 }

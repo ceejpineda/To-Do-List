@@ -10,22 +10,28 @@ const mainContentEvents = (()=>{
     const addItem = () =>{
         const add = document.querySelector('.addIcon');
         const toDoTask = document.querySelector('.taskDescription');
-
+        
         add.addEventListener('click', ()=>{
             if(toDoTask.value == "") return;
-            //todoContainer.appendChild(contentElements.todoItemFactory(toDoTask.value,false,true));
 
-            localStorage.setItem('task', toDoTask.value);
-            window.dispatchEvent(new Event('storage')) //Kapag Wala to you have to trigger the event in a different 
+            const elementNumber = document.querySelector('.todoContainer').lastChild.dataset.number;
+            if(elementNumber == null){
+                elementNumber = 1;
+            }
+            const taskNumber = elementNumber.toString();
+
+            let newToDo = {
+                task: toDoTask.value, 
+                number: taskNumber,
+            }
+
+            localStorage.setItem('task'+taskNumber, newToDo);
+            window.dispatchEvent(new Event('storage')); //Kapag Wala to you have to trigger the event in a different
         })
     }
 
     const localStorageRefresh = () =>{
-        const todoContainer = document.querySelector('.todoContainer');
-        window.addEventListener('storage', ()=>{
-            console.log('hello')    
-            todoContainer.appendChild(contentElements.todoItemFactory(localStorage.getItem('task'), false, true));
-        })
+
     }
 
     return {loadEvents};
